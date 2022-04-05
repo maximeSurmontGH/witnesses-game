@@ -1,15 +1,15 @@
-# Tags Generator Front
+# Witnesses game
 
 ## Description
 
-Tags generator front-end.
-A Replit is deployed [here](https://replit.com/@lcdm-all/tag-gen-client#src/routes/index.svelte).
+A game to choose my wedding witnesses.
 
 ## Technical stack
 
 - Node
 - TypeScript
 - Svelte
+- SvelteKit
 - Svelte Material UI
 
 ## Install
@@ -18,16 +18,29 @@ A Replit is deployed [here](https://replit.com/@lcdm-all/tag-gen-client#src/rout
 $ npm install
 
 # Build the theme style file (cf svelte material UI foc)
-$ npm prepare
+$ npm run prepare
 ```
 
 ## Running the app
 
 ```bash
 # development
-$ npm dev
+$ npm run start:dev
 
 # preview
 $ npm run build
-$ npm preview
+$ npm run start:preview
+```
+
+## Linting and formating
+
+```bash
+# svelte kit check
+$ npm run check
+
+# eslint
+$ npm run lint
+
+# prettier
+$ npm run format
 ```
