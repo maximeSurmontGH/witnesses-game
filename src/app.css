@@ -2,11 +2,15 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: var(
-		--mdc-typography-body1-font-family,
-		var(--mdc-typography-font-family, Roboto, sans-serif)
-	);
-	color: #606060;
+	font-family: Roboto, sans-serif;
+}
+
+main > section {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Theme colors. */

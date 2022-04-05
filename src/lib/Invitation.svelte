@@ -18,14 +18,12 @@
 
 <style>
 	section {
-		padding: 0 50px;
-		width: 100vw;
-		height: 100vh;
+		width: calc(100% - 40px);
 		display: flex;
-		justify-content: center;
-		align-items: center;
 		flex-direction: column;
+		justify-content: center;
 		background-color: var(--mdc-theme-secondary);
+		padding: 20px;
 	}
 	h1 {
 		margin: 0;
@@ -51,17 +49,35 @@
 	}
 	@media (max-width: 1100px) {
 		h1 {
-			font-size: 8em;
+			font-size: 5.5em;
+		}
+		h3 {
+			font-size: 3em;
+		}
+		h5 {
+			font-size: 1.5em;
 		}
 	}
 	@media (max-width: 600px) {
 		h1 {
-			font-size: 5em;
+			font-size: 4em;
+		}
+		h3 {
+			font-size: 2.5em;
+		}
+		h5 {
+			font-size: 1em;
 		}
 	}
 	@media (max-width: 400px) {
 		h1 {
-			font-size: 4em;
+			font-size: 3em;
+		}
+		h3 {
+			font-size: 2em;
+		}
+		h5 {
+			font-size: 1em;
 		}
 	}
 </style>
