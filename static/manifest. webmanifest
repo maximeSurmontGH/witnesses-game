@@ -1,0 +1,19 @@
+{
+	"short_name": "Witnesses game",
+	"name": "Witnesses game",
+	"description": "Witnesses game application.",
+	"lang": "fr",
+	"display": "standalone",
+	"start_url": "/",
+	"scope": "/",
+	"orientation": "portrait-primary",
+	"background_color": "white",
+	"theme_color": "#27285e",
+	"icons": [
+		{
+			"src": "logo150.png",
+			"sizes": "150x150",
+			"type": "image/png"
+		}
+	]
+}

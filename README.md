@@ -1,40 +1,33 @@
-# create-svelte
+# Tags Generator Front
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Description
 
-## Creating a project
+Tags generator front-end.
+A Replit is deployed [here](https://replit.com/@lcdm-all/tag-gen-client#src/routes/index.svelte).
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Technical stack
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+- Node
+- TypeScript
+- Svelte
+- Svelte Material UI
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Install
 
 ```bash
-npm run dev
+$ npm install
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Build the theme style file (cf svelte material UI foc)
+$ npm prepare
 ```
 
-## Building
-
-To create a production version of your app:
+## Running the app
 
 ```bash
-npm run build
+# development
+$ npm dev
+
+# preview
+$ npm run build
+$ npm preview
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
