@@ -1,7 +1,7 @@
 {
-	"short_name": "Witnesses game",
-	"name": "Witnesses game",
-	"description": "Witnesses game application.",
+	"short_name": "Qui sera nos témoins ?",
+	"name": "Qui sera nos témoins ?",
+	"description": "Qui sera nos témoins ?",
 	"lang": "fr",
 	"display": "standalone",
 	"start_url": "/",

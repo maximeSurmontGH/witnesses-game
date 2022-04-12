@@ -3,11 +3,11 @@
 
 <section>
 	<h3>Tu es invité à :</h3>
-	<h1>"Qui sera mon</h1>
-	<h1>témoin ?"</h1>
+	<h1>"Qui sera nos</h1>
+	<h1>témoins ?"</h1>
 	<h5>Un jeu produit par Pellemont Ind.</h5>
 	<h5>
-		Dimanche 1er mai à 19h00 - <a
+		Dimanche 1er mai à 16h30 - <a
 			target="_blank"
 			href="https://www.google.com/maps?q=29+rue+Kant+LILLE&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiyp-mA4v32AhVoRfEDHXIOBjMQ_AUoAXoECAEQAw"
 			>29 rue Kant LILLE</a
