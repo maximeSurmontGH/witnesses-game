@@ -1,7 +1,7 @@
 {
-	"short_name": "Qui sera nos témoins ?",
-	"name": "Qui sera nos témoins ?",
-	"description": "Qui sera nos témoins ?",
+	"short_name": "Qui seront nos témoins ?",
+	"name": "Qui seront nos témoins ?",
+	"description": "Qui seront nos témoins ?",
 	"lang": "fr",
 	"display": "standalone",
 	"start_url": "/",

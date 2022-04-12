@@ -3,7 +3,7 @@
 
 <section>
 	<h3>Tu es invité à :</h3>
-	<h1>"Qui sera nos</h1>
+	<h1>"Qui seront nos</h1>
 	<h1>témoins ?"</h1>
 	<h5>Un jeu produit par Pellemont Ind.</h5>
 	<h5>
