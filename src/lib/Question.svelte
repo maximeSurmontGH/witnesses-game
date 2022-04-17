@@ -101,5 +101,6 @@
 	}
 	p {
 		font-size: 1.5em;
+		color: var(--mdc-theme-primary);
 	}
 </style>

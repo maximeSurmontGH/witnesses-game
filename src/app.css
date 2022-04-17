@@ -6,7 +6,10 @@ body {
 }
 
 main > section {
+	width: 100vw;
 	height: 100vh;
+	margin: 0;
+	padding: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -21,7 +24,7 @@ main > section {
 	--mdc-theme-background: #fff;
 	--mdc-theme-surface: #fff;
 	--mdc-theme-success: #7ebd76;
-	--mdc-theme-error: #d38080;
+	--mdc-theme-error: #c24949;
 	--mdc-theme-on-primary: #fff;
 	--mdc-theme-on-secondary: #fff;
 	--mdc-theme-on-surface: #000;

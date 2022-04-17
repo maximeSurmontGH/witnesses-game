@@ -8,16 +8,8 @@
 	import Question from '$lib/Question.svelte';
 	import Scores from '$lib/Scores.svelte';
 	import Wheel from '$lib/Wheel.svelte';
+	import { store } from '$lib/store';
 	import '../app.css';
-
-	let users = [
-		{ id: 'id', name: 'paul', score: 1 },
-		{ id: 'id', name: 'vidal', score: 12 },
-		{ id: 'id', name: 'hugo', score: 26 },
-		{ id: 'id', name: 'baptiste', score: 13 },
-		{ id: 'id', name: 'nico', score: 2 },
-		{ id: 'id', name: 'charles', score: 37 }
-	];
 </script>
 
 <svelte:head>
@@ -25,19 +17,28 @@
 </svelte:head>
 
 <section>
-	<Invitation />
-	<!-- <GameTitle /> -->
-	<!-- <Wheel {users} /> -->
-	<!-- <Question
-		question="Quel est le nom de mon chien d'enfance ? "
-		questionId="cezecze"
-		responseA="Flora"
-		responseB="Gribouille"
-		responseC="Pixies"
-		responseD="Jet"
-		goodAnswer="Gribouille"
-	/> -->
-	<!-- <Scores {users} /> -->
+	{#if $store.displayInvitation}
+		<Invitation />
+	{/if}
+	{#if $store.displayGameTitle}
+		<GameTitle />
+	{/if}
+	{#if $store.displayWheel}
+		<Wheel />
+	{/if}
+	{#if $store.displayQuestion}
+		<Question
+			question="Quel est le nom de mon chien d'enfance ? "
+			questionId="cezecze"
+			responseA="Flora"
+			responseB="Gribouille"
+			responseC="Pixies"
+			responseD="Jet"
+			goodAnswer="Gribouille"
+		/>{/if}
+	{#if $store.displayScore}
+		<Scores />
+	{/if}
 </section>
 
 <style>
