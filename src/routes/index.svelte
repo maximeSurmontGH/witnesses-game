@@ -10,6 +10,7 @@
 	import Wheel from '$lib/Wheel.svelte';
 	import { store } from '$lib/store';
 	import '../app.css';
+	import Agreement from '$lib/Agreement.svelte';
 </script>
 
 <svelte:head>
@@ -22,6 +23,9 @@
 	{/if}
 	{#if $store.displayGameTitle}
 		<GameTitle />
+	{/if}
+	{#if $store.displayAgreement}
+		<Agreement />
 	{/if}
 	{#if $store.displayWheel}
 		<Wheel />

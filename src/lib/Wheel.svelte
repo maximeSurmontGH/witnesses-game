@@ -5,11 +5,25 @@
 
 	$: usersSortedByScore = $store.users.sort((userA, userB) => userB.score - userA.score);
 
+	let angle: number = 0;
+
 	const launchWheel = async () => {
 		let container: HTMLElement = document.querySelector('.container');
-		let angle = Math.ceil(Math.random() * 3600);
+		angle = angle + Math.ceil((1 + Math.random()) * 360 * 4);
 		container.style.transform = `rotate(${-angle}deg)`;
-		await new Promise((r) => setTimeout(r, 5000)); // 5000 is the time of the animation
+		const audio = new Audio('wheel-sound.mp3');
+		audio.play();
+		await new Promise((r) => setTimeout(r, 4000)); // 5000 is the time of the animation
+		audio.volume = 0.8;
+		await new Promise((r) => setTimeout(r, 250));
+		audio.volume = 0.6;
+		await new Promise((r) => setTimeout(r, 250));
+		audio.volume = 0.4;
+		await new Promise((r) => setTimeout(r, 250));
+		audio.volume = 0.2;
+		await new Promise((r) => setTimeout(r, 250));
+		audio.pause();
+		await new Promise((r) => setTimeout(r, 2000));
 		getElementSelected();
 	};
 

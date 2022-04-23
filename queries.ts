@@ -1,7 +1,7 @@
 // question sur ma vie
 // question sur notre couple
 // question perso
-export const queries = [
+export const quizSurMaxime = [
 	'J ai quel age ?',
 	'Quel est mon année de naissance ?',
 	'Quel célèbre personnage est née le même jour que ma personne ?',
@@ -9,6 +9,15 @@ export const queries = [
 	'Comment s appelle ma mère ?',
 	'Quelle est ma plus grande peur ?'
 ];
+
+export const quizSurCouple = [
+	'Depuis quand sommes nous ensemble ?',
+	"ou est ce qu'on c'est rencontré ?",
+	'Comment a eu lieu la demande en mariage ?',
+	'Quel est notre série préférée ?'
+];
+
+// mini défi
 
 // quel serais ton petit plus ?
 
@@ -29,3 +38,7 @@ export const situations = [
 	"Tu apprends que Chloé m'a trompé la vieille du mariage, que fais tu ?",
 	"On est à l'evg, et on se retrouve qu'à deux, que fais tu ?"
 ];
+
+// règle du témoin
+
+// Elle ou lui

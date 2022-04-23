@@ -4,6 +4,7 @@ import { writable } from 'svelte/store';
 interface IStore {
 	displayInvitation: boolean;
 	displayGameTitle: boolean;
+	displayAgreement: boolean;
 	displayWheel: boolean;
 	displayQuestion: boolean;
 	displayScore: boolean;
@@ -13,6 +14,7 @@ interface IStore {
 export const initStore: () => IStore = () => ({
 	displayInvitation: false,
 	displayGameTitle: true,
+	displayAgreement: false,
 	displayWheel: false,
 	displayQuestion: false,
 	displayScore: false,

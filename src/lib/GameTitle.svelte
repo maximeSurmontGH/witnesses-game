@@ -1,24 +1,23 @@
 <script lang="ts">
 	import { store } from './store';
-	import Button from '@smui/button';
-	import { Icon, Label } from '@smui/common';
+	import { Icon } from '@smui/common';
 </script>
 
-<section>
+<section
+	style="cursor: pointer;"
+	on:click={() => {
+		$store.displayGameTitle = false;
+		$store.displayAgreement = true;
+	}}
+>
 	<h1>Qui sera mon</h1>
-	<h1>témoin ?</h1>
-
-	<Button
-		variant="unelevated"
-		style="place-self: flex-end; margin: 20px 20px 0 0;"
-		on:click={() => {
-			$store.displayGameTitle = false;
-			$store.displayWheel = true;
-		}}
-		><Icon style=" font-size: 2em;width: fit-content;height: fit-content;" class="material-icons"
-			>login</Icon
-		><Label style=" font-size: 2em; text-transform: none;">rejoindre le jeu</Label></Button
-	>
+	<h1 style="display: flex; align-items: center; justify-content: space-between;">
+		témoin ? <span
+			><Icon style="vertical-align: middle; font-size: 1em;" class="material-icons"
+				>double_arrow</Icon
+			></span
+		>
+	</h1>
 </section>
 
 <style>
