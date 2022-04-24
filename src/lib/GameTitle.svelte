@@ -7,7 +7,7 @@
 	style="cursor: pointer;"
 	on:click={() => {
 		$store.displayGameTitle = false;
-		$store.displayAgreement = true;
+		$store.displayWhoAreYou = true;
 	}}
 >
 	<h1>Qui sera mon</h1>

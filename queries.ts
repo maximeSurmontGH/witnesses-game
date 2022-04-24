@@ -7,7 +7,8 @@ export const quizSurMaxime = [
 	'Quel célèbre personnage est née le même jour que ma personne ?',
 	'Quel est mon troisième prénom ?',
 	'Comment s appelle ma mère ?',
-	'Quelle est ma plus grande peur ?'
+	'Quelle est ma plus grande peur ?',
+	"nom chien d'enfance"
 ];
 
 export const quizSurCouple = [

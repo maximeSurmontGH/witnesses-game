@@ -3,104 +3,81 @@
 	import Button, { Label } from '@smui/button';
 	import { scale, slide } from 'svelte/transition';
 	import Countdown from './Countdown.svelte';
+	import { type IResponse, store } from './store';
 
-	export let question: string;
-	export let questionId: string;
-	export let responseA: string;
-	export let responseB: string;
-	export let responseC: string;
-	export let responseD: string;
-	export let goodAnswer: string;
-
-	let isQuestionAsked = false;
-	let isCountdownOver = false;
-
-	const answer = (response: string) => {
-		if (!isCountdownOver) {
-			console.log(questionId);
+	const answer = (response: IResponse) => {
+		if (!$store.isCounterDone) {
 			console.log(response);
 		}
 	};
 
-	const onCountdownOver = () => {
-		isCountdownOver = true;
-	};
-
-	$: getBackgroundColor = (response: string) => {
-		if (isCountdownOver) {
+	$: getBackgroundColor = (response: IResponse) => {
+		if ($store.isCounterDone) {
 			return `background-color: ${
-				response === goodAnswer ? 'var(--mdc-theme-success)' : 'var(--mdc-theme-error)'
+				response.isCorrect ? 'var(--mdc-theme-success)' : 'var(--mdc-theme-error)'
 			}; color: white;`;
 		}
 	};
 	$: getColor = () => {
-		if (isCountdownOver) {
+		if ($store.isCounterDone) {
 			return `color: white;`;
 		}
 	};
 </script>
 
 <section transition:scale>
-	{#if isQuestionAsked && !isCountdownOver}
+	{#if $store.isCounterLaunched && !$store.isCounterDone}
 		<div transition:slide>
-			<Countdown countdown={30} on:completed={() => onCountdownOver()} />
+			<Countdown countdown={30} on:completed={() => ($store.isCounterDone = true)} />
 		</div>
 	{/if}
-	<Card>
+	<Card style="width: 90%;">
 		<Content><h1>Question</h1></Content>
-		<Content><p>{question}</p></Content>
-		{#if !isQuestionAsked}
-			<Actions fullBleed>
-				<Button on:click={() => (isQuestionAsked = true)}>
-					<Label>Voir les propositions de réponses</Label>
-					<i class="material-icons" aria-hidden="true">arrow_forward</i>
-				</Button>
-			</Actions>
-		{:else}
-			<div transition:slide>
-				<Actions fullBleed style={getBackgroundColor(responseA)}>
-					<Button on:click={() => answer('A')} disabled={isCountdownOver}>
-						<Label style={getColor()}>A. {responseA}</Label>
-						<i style={getColor()} class="material-icons" aria-hidden="true">arrow_forward</i>
+		<Content><p>{$store.question || "En attente d'une question ..."}</p></Content>
+		{#if !!$store.question}
+			{#if !$store.isCounterLaunched}
+				<Actions fullBleed>
+					<Button on:click={() => ($store.isCounterLaunched = true)}>
+						<Label>Voir les propositions de réponses</Label>
+						<i class="material-icons" aria-hidden="true">arrow_forward</i>
 					</Button>
 				</Actions>
-				<Actions fullBleed style={getBackgroundColor(responseB)}>
-					<Button on:click={() => answer('B')} disabled={isCountdownOver}>
-						<Label style={getColor()}>B. {responseB}</Label>
-						<i style={getColor()} class="material-icons" aria-hidden="true">arrow_forward</i>
-					</Button>
-				</Actions>
-				<Actions fullBleed style={getBackgroundColor(responseC)}>
-					<Button on:click={() => answer('C')} disabled={isCountdownOver}>
-						<Label style={getColor()}>C. {responseC}</Label>
-						<i style={getColor()} class="material-icons" aria-hidden="true">arrow_forward</i>
-					</Button>
-				</Actions>
-				<Actions fullBleed style={getBackgroundColor(responseD)}>
-					<Button on:click={() => answer('D')} disabled={isCountdownOver}>
-						<Label style={getColor()}>D. {responseD}</Label>
-						<i style={getColor()} class="material-icons" aria-hidden="true">arrow_forward</i>
-					</Button>
-				</Actions>
-			</div>
+			{:else}
+				<div transition:slide>
+					{#each $store.question.responses as response, index}
+						<Actions fullBleed style={getBackgroundColor(response)}>
+							<Button on:click={() => answer(response)} disabled={$store.isCounterDone}>
+								<Label style={getColor()}>{index}. {response.label}</Label>
+								<i style={getColor()} class="material-icons" aria-hidden="true">arrow_forward</i>
+							</Button>
+						</Actions>
+					{/each}
+				</div>
+			{/if}
 		{/if}
 	</Card>
 </section>
 
 <style>
 	section {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 999;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
+		justify-content: center;
+	}
+	section > div {
+		padding: 10px;
 	}
 	h1 {
 		margin: 0;
-		font-size: 4em;
+		font-size: 3em;
 		color: var(--mdc-theme-primary);
-		text-decoration: underline;
 	}
 	p {
-		font-size: 1.5em;
+		font-size: 14px;
 		color: var(--mdc-theme-primary);
 	}
 </style>

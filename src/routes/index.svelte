@@ -11,6 +11,7 @@
 	import { store } from '$lib/store';
 	import '../app.css';
 	import Agreement from '$lib/Agreement.svelte';
+	import WhoAreYou from '$lib/WhoAreYou.svelte';
 </script>
 
 <svelte:head>
@@ -24,6 +25,9 @@
 	{#if $store.displayGameTitle}
 		<GameTitle />
 	{/if}
+	{#if $store.displayWhoAreYou}
+		<WhoAreYou />
+	{/if}
 	{#if $store.displayAgreement}
 		<Agreement />
 	{/if}
@@ -31,15 +35,8 @@
 		<Wheel />
 	{/if}
 	{#if $store.displayQuestion}
-		<Question
-			question="Quel est le nom de mon chien d'enfance ? "
-			questionId="cezecze"
-			responseA="Flora"
-			responseB="Gribouille"
-			responseC="Pixies"
-			responseD="Jet"
-			goodAnswer="Gribouille"
-		/>{/if}
+		<Question />
+	{/if}
 	{#if $store.displayScore}
 		<Scores />
 	{/if}
