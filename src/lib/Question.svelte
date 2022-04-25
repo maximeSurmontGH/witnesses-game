@@ -4,9 +4,10 @@
 	import { scale, slide } from 'svelte/transition';
 	import Countdown from './Countdown.svelte';
 	import { type IResponse, store } from './store';
+	import { Icon } from '@smui/common';
 
 	const answer = (response: IResponse) => {
-		if (!$store.isCounterDone) {
+		if (!$store.isCounterDone && $store.user) {
 			console.log(response);
 		}
 	};
@@ -23,6 +24,14 @@
 			return `color: white;`;
 		}
 	};
+
+	const closeQuestion = () => {
+		$store.question = undefined;
+		$store.isCounterLaunched = false;
+		$store.isCounterDone = false;
+		$store.displayQuestion = false;
+		$store.displayWheel = true;
+	};
 </script>
 
 <section transition:scale>
@@ -32,17 +41,28 @@
 		</div>
 	{/if}
 	<Card style="width: 90%;">
-		<Content><h1>Question</h1></Content>
-		<Content><p>{$store.question || "En attente d'une question ..."}</p></Content>
+		<Content
+			><h1>
+				Question
+				{#if !$store.user}
+					<Icon
+						style="cursor: pointer; float: right; font-weight: bold;"
+						class="material-icons"
+						on:click={closeQuestion}>close</Icon
+					>
+				{/if}
+			</h1></Content
+		>
+		<Content><p>{$store?.question?.label || "En attente d'une question ..."}</p></Content>
 		{#if !!$store.question}
-			{#if !$store.isCounterLaunched}
+			{#if !$store.isCounterLaunched && $store.question}
 				<Actions fullBleed>
 					<Button on:click={() => ($store.isCounterLaunched = true)}>
 						<Label>Voir les propositions de réponses</Label>
 						<i class="material-icons" aria-hidden="true">arrow_forward</i>
 					</Button>
 				</Actions>
-			{:else}
+			{:else if $store.isCounterLaunched}
 				<div transition:slide>
 					{#each $store.question.responses as response, index}
 						<Actions fullBleed style={getBackgroundColor(response)}>
@@ -65,6 +85,7 @@
 		height: 100%;
 		z-index: 999;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 	}
@@ -77,7 +98,7 @@
 		color: var(--mdc-theme-primary);
 	}
 	p {
-		font-size: 14px;
+		font-size: 20px;
 		color: var(--mdc-theme-primary);
 	}
 </style>

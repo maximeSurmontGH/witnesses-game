@@ -2,8 +2,14 @@
 	import { scale } from 'svelte/transition';
 	import { store } from './store';
 	import { Icon, Label } from '@smui/common';
-
-	$: usersSortedByScore = $store.users.sort((userA, userB) => userB.score - userA.score);
+	import Button from '@smui/button';
+	import {
+		coupleQueries,
+		duelQueries,
+		maximeQueries,
+		sheOrHeQueries,
+		situationQueries
+	} from './queries';
 
 	let angle: number = 0;
 
@@ -32,37 +38,128 @@
 			{
 				positionTop: document.querySelector('.one span').getBoundingClientRect().top,
 				fn: () => {
-					$store.displayWheel = false;
-					$store.displayQuestion = true;
+					const question = maximeQueries.filter(
+						({ id }) => !$store.questionIdsAsked.includes(id)
+					)[0];
+					if (!question) {
+						launchWheel();
+					} else {
+						$store.question = question;
+						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+						$store.displayWheel = false;
+						$store.displayQuestion = true;
+					}
 				}
 			},
 			{
 				positionTop: document.querySelector('.two span').getBoundingClientRect().top,
-				fn: () => console.log('2')
+				fn: () => {
+					const question = coupleQueries.filter(
+						({ id }) => !$store.questionIdsAsked.includes(id)
+					)[0];
+					if (!question) {
+						launchWheel();
+					} else {
+						$store.question = question;
+						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+						$store.displayWheel = false;
+						$store.displayQuestion = true;
+					}
+				}
 			},
 			{
 				positionTop: document.querySelector('.three span').getBoundingClientRect().top,
-				fn: () => console.log('3')
+				fn: () => {
+					const question = sheOrHeQueries.filter(
+						({ id }) => !$store.questionIdsAsked.includes(id)
+					)[0];
+					if (!question) {
+						launchWheel();
+					} else {
+						$store.question = question;
+						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+						$store.displayWheel = false;
+						$store.displayQuestion = true;
+					}
+				}
 			},
 			{
 				positionTop: document.querySelector('.four span').getBoundingClientRect().top,
-				fn: () => console.log('4')
+				fn: () => {
+					const question = situationQueries.filter(
+						({ id }) => !$store.questionIdsAsked.includes(id)
+					)[0];
+					if (!question) {
+						launchWheel();
+					} else {
+						$store.question = question;
+						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+						$store.displayWheel = false;
+						$store.displayQuestion = true;
+					}
+				}
 			},
 			{
 				positionTop: document.querySelector('.five span').getBoundingClientRect().top,
-				fn: () => console.log('5')
+				fn: () => {
+					const question = maximeQueries.filter(
+						({ id }) => !$store.questionIdsAsked.includes(id)
+					)[0];
+					if (!question) {
+						launchWheel();
+					} else {
+						$store.question = question;
+						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+						$store.displayWheel = false;
+						$store.displayQuestion = true;
+					}
+				}
 			},
 			{
 				positionTop: document.querySelector('.six span').getBoundingClientRect().top,
-				fn: () => console.log('6')
+				fn: () => {
+					const question = coupleQueries.filter(
+						({ id }) => !$store.questionIdsAsked.includes(id)
+					)[0];
+					if (!question) {
+						launchWheel();
+					} else {
+						$store.question = question;
+						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+						$store.displayWheel = false;
+						$store.displayQuestion = true;
+					}
+				}
 			},
 			{
 				positionTop: document.querySelector('.seven span').getBoundingClientRect().top,
-				fn: () => console.log('7')
+				fn: () => {
+					const question = sheOrHeQueries.filter(
+						({ id }) => !$store.questionIdsAsked.includes(id)
+					)[0];
+					if (!question) {
+						launchWheel();
+					} else {
+						$store.question = question;
+						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+						$store.displayWheel = false;
+						$store.displayQuestion = true;
+					}
+				}
 			},
 			{
 				positionTop: document.querySelector('.eight span').getBoundingClientRect().top,
-				fn: () => console.log('8')
+				fn: () => {
+					const question = duelQueries.filter(({ id }) => !$store.questionIdsAsked.includes(id))[0];
+					if (!question) {
+						launchWheel();
+					} else {
+						$store.question = question;
+						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+						$store.displayWheel = false;
+						$store.displayQuestion = true;
+					}
+				}
 			}
 		]
 			.sort((elA, elB) => elA.positionTop - elB.positionTop)[0]
@@ -70,47 +167,82 @@
 	};
 </script>
 
-<section transition:scale>
-	<div
-		class="score-container"
-		on:click={() => {
-			$store.displayScore = true;
-		}}
-	>
-		<h1>
-			<Icon style="vertical-align: bottom;" class="material-icons">scoreboard</Icon>
+<section>
+	<div class="score-container">
+		<h1
+			style="display: flex; justify-content: space-between; align-items: center; padding: 5px; margin: 0;"
+		>
 			<Label>SCORES</Label>
+			<Button
+				variant="raised"
+				style="min-width: unset;"
+				on:click={() => {
+					$store.displayScore = true;
+				}}
+			>
+				<Icon class="material-icons" style="margin: 0;">visibility</Icon>
+			</Button>
 		</h1>
 
-		{#each usersSortedByScore as user, i}
-			<p>
-				<span class="username">{i + 1}. {user.name}</span>
-				{user.score} pts
+		{#each $store.users as user}
+			<p style="display: flex; align-items: center;">
+				<span class="username">{user.name}</span>
+				<span style="width: 60px;">{user.score} pts </span>
+				<Button
+					variant="raised"
+					style="margin-right: 5px; min-width: unset;"
+					on:click={() => (user.score += 1)}
+				>
+					<Icon class="material-icons" style="margin: 0;">add</Icon>
+				</Button>
+				<Button variant="raised" style="min-width: unset;" on:click={() => (user.score += 1)}>
+					<Icon class="material-icons" style="margin: 0;">remove</Icon>
+				</Button>
 			</p>
 		{/each}
 	</div>
 
 	<button id="spin" on:click={launchWheel}>Spin</button>
-	<span class="arrow">&#8595;</span>
+	<Icon
+		class="material-icons arrow"
+		style="margin: 0; color: rgba(0,0,0,.6); position: absolute; top: 97px; left: calc(50% - 42px); font-size: 84px; z-index: 98; filter: blur(1.5px); transform: rotate(90deg);"
+		>play_arrow</Icon
+	>
+
+	<Icon
+		class="material-icons arrow"
+		style="margin: 0; color: var(--mdc-theme-error); position: absolute;top: 95px; left: calc(50% - 40px); font-size: 80px; z-index: 99; transform: rotate(90deg);"
+		>play_arrow</Icon
+	>
 	<div class="container">
-		<div class="one"><span>Action</span></div>
-		<div class="two"><span /></div>
-		<div class="three"><span>3</span></div>
-		<div class="four"><span>4</span></div>
-		<div class="five"><span>5</span></div>
-		<div class="six"><span>6</span></div>
-		<div class="seven"><span>7</span></div>
-		<div class="eight"><span>8</span></div>
+		<div class="one">
+			<span>
+				<br />Question<br />sur<br />Maxime<br /><br /><br /><br />
+			</span>
+		</div>
+		<div class="two">
+			<span>Question<br />sur<br />notre<br />couple<br /><br /><br /><br /></span>
+		</div>
+		<div class="three"><span><br />Elle<br />ou<br />lui<br /><br /><br /><br /></span></div>
+		<div class="four"><span><br /><br />Mise en<br />situation<br /><br /><br /><br /></span></div>
+		<div class="five"><span><br />Question<br />sur<br />Maxime<br /><br /><br /><br /></span></div>
+		<div class="six">
+			<span>Question<br />sur<br />notre<br />couple<br /><br /><br /><br /></span>
+		</div>
+		<div class="seven"><span><br />Elle<br />ou<br />lui<br /><br /><br /><br /></span></div>
+		<div class="eight"><span><br /><br /><br />Duel<br /><br /><br /><br /></span></div>
 	</div>
 </section>
 
 <style>
 	.score-container {
-		top: 0;
+		top: 10px;
 		left: 10px;
 		position: absolute;
-		cursor: pointer;
 		color: var(--mdc-theme-primary);
+		background-color: rgba(255, 255, 255, 0.4);
+		border-radius: 6px;
+		padding: 5px 3px;
 	}
 	.score-container p {
 		display: flex;
@@ -118,6 +250,7 @@
 		margin: 5px;
 	}
 	.username {
+		width: 100px;
 		padding-right: 20px;
 	}
 
@@ -134,6 +267,7 @@
 		position: relative;
 		overflow: hidden;
 		transition: 5s;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	}
 
 	.container div {
@@ -187,16 +321,6 @@
 		transform: rotate(315deg);
 	}
 
-	.arrow {
-		position: absolute;
-		top: 40px;
-		left: 50%;
-		transform: translateX(-50%);
-		color: var(--mdc-theme-error);
-		font-size: 80px;
-		z-index: 99;
-	}
-
 	#spin {
 		position: absolute;
 		top: 50%;
@@ -216,5 +340,10 @@
 		cursor: pointer;
 		outline: none;
 		letter-spacing: 1px;
+	}
+	#spin:hover {
+		width: 90px;
+		height: 90px;
+		font-size: 24px;
 	}
 </style>

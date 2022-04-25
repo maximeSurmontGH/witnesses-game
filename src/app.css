@@ -5,6 +5,10 @@ body {
 	font-family: Roboto, sans-serif;
 }
 
+/* * {
+	cursor: default;
+} */
+
 main > section {
 	width: 100vw;
 	height: 100vh;

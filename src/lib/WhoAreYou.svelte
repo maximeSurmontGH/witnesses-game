@@ -12,6 +12,7 @@
 			<Actions fullBleed>
 				<Button
 					on:click={() => {
+						$store.user = user;
 						$store.displayWhoAreYou = false;
 						$store.displayAgreement = true;
 					}}

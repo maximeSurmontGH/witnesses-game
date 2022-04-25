@@ -19,9 +19,11 @@ interface IStore {
 	displayQuestion: boolean;
 	displayScore: boolean;
 	users: IUser[];
+	user?: IUser;
 	question?: IQuestion;
 	isCounterLaunched: boolean;
 	isCounterDone: boolean;
+	questionIdsAsked: string[];
 }
 
 export const initStore: () => IStore = () => ({
@@ -33,15 +35,16 @@ export const initStore: () => IStore = () => ({
 	displayQuestion: false,
 	displayScore: false,
 	users: [
-		{ id: 'id', name: 'paul', score: 1 },
-		{ id: 'id', name: 'vidal', score: 12 },
-		{ id: 'id', name: 'hugo', score: 26 },
-		{ id: 'id', name: 'baptiste', score: 13 },
-		{ id: 'id', name: 'nico', score: 2 },
-		{ id: 'id', name: 'charles', score: 37 }
+		{ id: '01', name: 'Baptiste', score: 0 },
+		{ id: '02', name: 'Charles', score: 0 },
+		{ id: '03', name: 'Hugo', score: 0 },
+		{ id: '04', name: 'Nico', score: 0 },
+		{ id: '05', name: 'Paul', score: 0 },
+		{ id: '06', name: 'Vidal', score: 0 }
 	],
 	isCounterLaunched: false,
-	isCounterDone: false
+	isCounterDone: false,
+	questionIdsAsked: []
 });
 
 const createStore = () => {
