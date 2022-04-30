@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 </script>
 
 <section>
@@ -13,7 +14,9 @@
 			>29 rue Kant LILLE</a
 		>.
 	</h5>
-	<h5>En cas d'insdisponibilités, merci de prévenir les organisateurs au plus vite.</h5>
+	<h5 on:click={() => goto('/game')}>
+		En cas d'insdisponibilités, merci de prévenir les organisateurs au plus vite.
+	</h5>
 </section>
 
 <style>
