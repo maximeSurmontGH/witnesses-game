@@ -17,7 +17,7 @@ worker.addEventListener('install', (event) => {
 			.then((cache) => cache.addAll(to_cache))
 			.then(() => {
 				worker.skipWaiting();
-			}),
+			})
 	);
 });
 
@@ -30,7 +30,7 @@ worker.addEventListener('activate', (event) => {
 			}
 
 			worker.clients.claim();
-		}),
+		})
 	);
 });
 
@@ -60,7 +60,8 @@ worker.addEventListener('fetch', (event) => {
 
 	// don't try to handle e.g. data: URIs
 	const isHttp = url.protocol.startsWith('http');
-	const isDevServerRequest = url.hostname === self.location.hostname && url.port !== self.location.port;
+	const isDevServerRequest =
+		url.hostname === self.location.hostname && url.port !== self.location.port;
 	const isStaticAsset = url.host === self.location.host && staticAssets.has(url.pathname);
 	const skipBecauseUncached = event.request.cache === 'only-if-cached' && !isStaticAsset;
 
@@ -73,7 +74,7 @@ worker.addEventListener('fetch', (event) => {
 				const cachedAsset = isStaticAsset && (await caches.match(event.request));
 
 				return cachedAsset || fetchAndCache(event.request);
-			})(),
+			})()
 		);
 	}
 });

@@ -10,6 +10,11 @@ export interface IQuestion {
 	label: string;
 	responses: IResponse[];
 }
+export interface IQuestionApi {
+	id: string;
+	fields: { questionId: string; isDisplayed: boolean };
+}
+
 interface IStore {
 	api: {
 		url: string;

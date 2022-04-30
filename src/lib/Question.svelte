@@ -3,7 +3,7 @@
 	import Button, { Label } from '@smui/button';
 	import { scale, slide } from 'svelte/transition';
 	import Countdown from './Countdown.svelte';
-	import { type IResponse, store } from './store';
+	import { type IResponse, store, type IQuestionApi } from './store';
 	import { Icon } from '@smui/common';
 	import { onMount } from 'svelte';
 	import axios from 'axios';
@@ -15,7 +15,7 @@
 		situationQueries
 	} from './queries';
 
-	let recordsToDisplay;
+	let recordsToDisplay: IQuestionApi;
 
 	const displayQuestionToOthers = async () => {
 		const res = await axios.post(`${$store.api.url}?api_key=${$store.api.key}`, {
@@ -37,7 +37,9 @@
 			`${$store.api.url}?api_key=${$store.api.key}&view=Grid%20view`
 		);
 		if (questionsFromApi.data?.records?.length) {
-			recordsToDisplay = questionsFromApi.data.records.find((q) => q.fields.isDisplayed);
+			recordsToDisplay = questionsFromApi.data.records.find(
+				(q: IQuestionApi) => q.fields.isDisplayed
+			);
 			const questionToDisplayId = recordsToDisplay?.fields?.questionId;
 			if (questionToDisplayId) {
 				$store.question = [

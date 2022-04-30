@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { IQuestion, store } from './store';
+	import { type IQuestion, store } from './store';
 	import { Icon, Label } from '@smui/common';
 	import Button from '@smui/button';
 	import {
@@ -10,7 +10,7 @@
 		situationQueries
 	} from './queries';
 
-	let angle: number = 0;
+	let angle = 0;
 
 	const saveAndDisplayQuestion = async (question: IQuestion) => {
 		if (!question) {
