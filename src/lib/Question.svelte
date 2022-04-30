@@ -134,7 +134,7 @@
 <section transition:scale>
 	{#if $store.isCounterLaunched && !$store.isCounterDone && !$store.user}
 		<div transition:slide>
-			<Countdown countdown={30} on:completed={() => ($store.isCounterDone = true)} />
+			<Countdown countdown={15} on:completed={() => ($store.isCounterDone = true)} />
 		</div>
 	{/if}
 	<Card style="width: 90%;">
