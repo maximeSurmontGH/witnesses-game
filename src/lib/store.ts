@@ -11,6 +11,10 @@ export interface IQuestion {
 	responses: IResponse[];
 }
 interface IStore {
+	api: {
+		url: string;
+		key: string;
+	};
 	displayInvitation: boolean;
 	displayGameTitle: boolean;
 	displayWhoAreYou: boolean;
@@ -27,6 +31,7 @@ interface IStore {
 }
 
 export const initStore: () => IStore = () => ({
+	api: { url: 'https://api.airtable.com/v0/appSlVZRstmNGka1f/Questions', key: 'key6cd96uiyWqIsVL' },
 	displayInvitation: false,
 	displayGameTitle: true,
 	displayWhoAreYou: false,
@@ -35,12 +40,11 @@ export const initStore: () => IStore = () => ({
 	displayQuestion: false,
 	displayScore: false,
 	users: [
-		{ id: '01', name: 'Baptiste', score: 0 },
-		{ id: '02', name: 'Charles', score: 0 },
-		{ id: '03', name: 'Hugo', score: 0 },
-		{ id: '04', name: 'Nico', score: 0 },
-		{ id: '05', name: 'Paul', score: 0 },
-		{ id: '06', name: 'Vidal', score: 0 }
+		{ id: 'USER 01', name: 'Baptiste', score: 0 },
+		{ id: 'USER 02', name: 'Charles', score: 0 },
+		{ id: 'USER 03', name: 'Hugo', score: 0 },
+		{ id: 'USER 04', name: 'Paul', score: 0 },
+		{ id: 'USER 05', name: 'Vidal', score: 0 }
 	],
 	isCounterLaunched: false,
 	isCounterDone: false,

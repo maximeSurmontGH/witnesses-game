@@ -10,11 +10,11 @@ export const maximeQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -24,11 +24,11 @@ export const maximeQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -38,11 +38,11 @@ export const maximeQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -52,11 +52,11 @@ export const maximeQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -66,11 +66,11 @@ export const maximeQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -80,11 +80,11 @@ export const maximeQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -94,11 +94,11 @@ export const maximeQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	}
@@ -111,11 +111,11 @@ export const coupleQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -125,11 +125,11 @@ export const coupleQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -139,11 +139,11 @@ export const coupleQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	},
@@ -153,11 +153,11 @@ export const coupleQueries: IQuestion[] = [
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	}
@@ -171,12 +171,12 @@ export const situationQueries: IQuestion[] = [
 	},
 	{
 		id: 'SITUATION 02',
-		label: "Je suis tombé dans la oue, j'ai pas de change, que fais tu ?",
+		label: "Je suis tombé dans la boue, j'ai pas de change, que fais tu ?",
 		responses: []
 	},
 	{
 		id: 'SITUATION 03',
-		label: 'Lors de l evg, une meuf incroyable me drague, je suis pas très vrai, que fais tu ?',
+		label: 'Lors de l evg, une meuf incroyable me drague, je suis pas très frai, que fais tu ?',
 		responses: []
 	},
 	{
@@ -221,6 +221,11 @@ export const situationQueries: IQuestion[] = [
 		label:
 			"La vieille du jour J je viens te voir et je te demande de m'aider à m'échapper, que fais tu ?",
 		responses: []
+	},
+	{
+		id: 'SITUATION 12',
+		label: 'Gérer ta belle mère bourrée ?',
+		responses: []
 	}
 ];
 
@@ -250,16 +255,18 @@ export const duelQueries: IQuestion[] = [
 export const sheOrHeQueries: IQuestion[] = [
 	{
 		id: 'SHE OR HE 01',
-		label: '',
+		label: 'thé ?',
 		responses: [
 			{
 				label: 'Elle',
-				isCorrect: false
+				isCorrect: true
 			},
 			{
 				label: 'Lui',
-				isCorrect: false
+				isCorrect: true
 			}
 		]
 	}
 ];
+
+// misophone

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { scale } from 'svelte/transition';
-	import { store } from './store';
+	import { IQuestion, store } from './store';
 	import { Icon, Label } from '@smui/common';
 	import Button from '@smui/button';
 	import {
@@ -12,6 +11,17 @@
 	} from './queries';
 
 	let angle: number = 0;
+
+	const saveAndDisplayQuestion = async (question: IQuestion) => {
+		if (!question) {
+			launchWheel();
+		} else {
+			$store.question = question;
+			$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
+			$store.displayWheel = false;
+			$store.displayQuestion = true;
+		}
+	};
 
 	const launchWheel = async () => {
 		let container: HTMLElement = document.querySelector('.container');
@@ -29,7 +39,7 @@
 		audio.volume = 0.2;
 		await new Promise((r) => setTimeout(r, 250));
 		audio.pause();
-		await new Promise((r) => setTimeout(r, 2000));
+		await new Promise((r) => setTimeout(r, 1000));
 		getElementSelected();
 	};
 
@@ -37,128 +47,72 @@
 		[
 			{
 				positionTop: document.querySelector('.one span').getBoundingClientRect().top,
-				fn: () => {
-					const question = maximeQueries.filter(
+				fn: async () => {
+					const [question] = maximeQueries.filter(
 						({ id }) => !$store.questionIdsAsked.includes(id)
-					)[0];
-					if (!question) {
-						launchWheel();
-					} else {
-						$store.question = question;
-						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
-						$store.displayWheel = false;
-						$store.displayQuestion = true;
-					}
+					);
+					await saveAndDisplayQuestion(question);
 				}
 			},
 			{
 				positionTop: document.querySelector('.two span').getBoundingClientRect().top,
-				fn: () => {
-					const question = coupleQueries.filter(
+				fn: async () => {
+					const [question] = coupleQueries.filter(
 						({ id }) => !$store.questionIdsAsked.includes(id)
-					)[0];
-					if (!question) {
-						launchWheel();
-					} else {
-						$store.question = question;
-						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
-						$store.displayWheel = false;
-						$store.displayQuestion = true;
-					}
+					);
+					await saveAndDisplayQuestion(question);
 				}
 			},
 			{
 				positionTop: document.querySelector('.three span').getBoundingClientRect().top,
-				fn: () => {
-					const question = sheOrHeQueries.filter(
+				fn: async () => {
+					const [question] = sheOrHeQueries.filter(
 						({ id }) => !$store.questionIdsAsked.includes(id)
-					)[0];
-					if (!question) {
-						launchWheel();
-					} else {
-						$store.question = question;
-						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
-						$store.displayWheel = false;
-						$store.displayQuestion = true;
-					}
+					);
+					await saveAndDisplayQuestion(question);
 				}
 			},
 			{
 				positionTop: document.querySelector('.four span').getBoundingClientRect().top,
-				fn: () => {
-					const question = situationQueries.filter(
+				fn: async () => {
+					const [question] = situationQueries.filter(
 						({ id }) => !$store.questionIdsAsked.includes(id)
-					)[0];
-					if (!question) {
-						launchWheel();
-					} else {
-						$store.question = question;
-						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
-						$store.displayWheel = false;
-						$store.displayQuestion = true;
-					}
+					);
+					await saveAndDisplayQuestion(question);
 				}
 			},
 			{
 				positionTop: document.querySelector('.five span').getBoundingClientRect().top,
-				fn: () => {
-					const question = maximeQueries.filter(
+				fn: async () => {
+					const [question] = maximeQueries.filter(
 						({ id }) => !$store.questionIdsAsked.includes(id)
-					)[0];
-					if (!question) {
-						launchWheel();
-					} else {
-						$store.question = question;
-						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
-						$store.displayWheel = false;
-						$store.displayQuestion = true;
-					}
+					);
+					await saveAndDisplayQuestion(question);
 				}
 			},
 			{
 				positionTop: document.querySelector('.six span').getBoundingClientRect().top,
-				fn: () => {
-					const question = coupleQueries.filter(
+				fn: async () => {
+					const [question] = coupleQueries.filter(
 						({ id }) => !$store.questionIdsAsked.includes(id)
-					)[0];
-					if (!question) {
-						launchWheel();
-					} else {
-						$store.question = question;
-						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
-						$store.displayWheel = false;
-						$store.displayQuestion = true;
-					}
+					);
+					await saveAndDisplayQuestion(question);
 				}
 			},
 			{
 				positionTop: document.querySelector('.seven span').getBoundingClientRect().top,
-				fn: () => {
-					const question = sheOrHeQueries.filter(
+				fn: async () => {
+					const [question] = sheOrHeQueries.filter(
 						({ id }) => !$store.questionIdsAsked.includes(id)
-					)[0];
-					if (!question) {
-						launchWheel();
-					} else {
-						$store.question = question;
-						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
-						$store.displayWheel = false;
-						$store.displayQuestion = true;
-					}
+					);
+					await saveAndDisplayQuestion(question);
 				}
 			},
 			{
 				positionTop: document.querySelector('.eight span').getBoundingClientRect().top,
-				fn: () => {
-					const question = duelQueries.filter(({ id }) => !$store.questionIdsAsked.includes(id))[0];
-					if (!question) {
-						launchWheel();
-					} else {
-						$store.question = question;
-						$store.questionIdsAsked = [...$store.questionIdsAsked, question.id];
-						$store.displayWheel = false;
-						$store.displayQuestion = true;
-					}
+				fn: async () => {
+					const [question] = duelQueries.filter(({ id }) => !$store.questionIdsAsked.includes(id));
+					await saveAndDisplayQuestion(question);
 				}
 			}
 		]
