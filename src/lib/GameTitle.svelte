@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { store } from './store';
-	import { Icon } from '@smui/common';
+	import { Icon } from '@smui/button';
 </script>
 
 <section

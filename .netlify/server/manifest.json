@@ -1,37 +1,75 @@
 {
-	".svelte-kit/build/index.js": {
-		"file": "index.js",
-		"src": ".svelte-kit/build/index.js",
-		"isEntry": true,
-		"imports": ["_index-f9eb35ed.js"],
-		"dynamicImports": [".svelte-kit/build/hooks.js"]
-	},
-	"src/routes/__layout.svelte": {
-		"file": "entries/pages/__layout.svelte.js",
-		"src": "src/routes/__layout.svelte",
-		"isEntry": true,
-		"imports": ["_index-f9eb35ed.js"],
-		"css": ["assets/app-6ad4c779.css"]
-	},
-	".svelte-kit/runtime/components/error.svelte": {
-		"file": "entries/fallbacks/error.svelte.js",
-		"src": ".svelte-kit/runtime/components/error.svelte",
-		"isEntry": true,
-		"imports": ["_index-f9eb35ed.js"]
-	},
-	"src/routes/index.svelte": {
-		"file": "entries/pages/index.svelte.js",
-		"src": "src/routes/index.svelte",
-		"isEntry": true,
-		"imports": ["_index-f9eb35ed.js"],
-		"css": ["assets/entries/pages/index.svelte-b6c0b404.css", "assets/app-6ad4c779.css"]
-	},
-	"_index-f9eb35ed.js": {
-		"file": "chunks/index-f9eb35ed.js"
-	},
-	".svelte-kit/build/hooks.js": {
-		"file": "chunks/hooks-1c45ba0b.js",
-		"src": ".svelte-kit/build/hooks.js",
-		"isDynamicEntry": true
-	}
+  ".svelte-kit/build/index.js": {
+    "file": "index.js",
+    "src": ".svelte-kit/build/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index-1d801ba1.js"
+    ],
+    "dynamicImports": [
+      ".svelte-kit/build/hooks.js"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "entries/pages/__layout.svelte.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-1d801ba1.js"
+    ],
+    "css": [
+      "assets/app-cbe61751.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-1d801ba1.js"
+    ]
+  },
+  "src/routes/game.svelte": {
+    "file": "entries/pages/game.svelte.js",
+    "src": "src/routes/game.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-1d801ba1.js",
+      "_Invitation-d74634b8.js"
+    ],
+    "css": [
+      "assets/entries/pages/game.svelte-99775545.css",
+      "assets/app-cbe61751.css"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "entries/pages/index.svelte.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-1d801ba1.js",
+      "_Invitation-d74634b8.js"
+    ],
+    "css": [
+      "assets/entries/pages/index.svelte-ce7355d0.css",
+      "assets/app-cbe61751.css"
+    ]
+  },
+  "_index-1d801ba1.js": {
+    "file": "chunks/index-1d801ba1.js"
+  },
+  "_Invitation-d74634b8.js": {
+    "file": "chunks/Invitation-d74634b8.js",
+    "imports": [
+      "_index-1d801ba1.js"
+    ],
+    "css": [
+      "assets/Invitation-132669dc.css"
+    ]
+  },
+  ".svelte-kit/build/hooks.js": {
+    "file": "chunks/hooks-1c45ba0b.js",
+    "src": ".svelte-kit/build/hooks.js",
+    "isDynamicEntry": true
+  }
 }

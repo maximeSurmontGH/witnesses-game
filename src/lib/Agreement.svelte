@@ -3,7 +3,7 @@
 	import Button from '@smui/button';
 	import { scale } from 'svelte/transition';
 	import { store } from './store';
-	import { Label } from '@smui/common';
+	import { Label } from '@smui/button';
 	import Checkbox from '@smui/checkbox';
 	import FormField from '@smui/form-field';
 

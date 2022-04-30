@@ -1,10 +1,9 @@
 <script lang="ts">
 	import Card, { Content, Actions } from '@smui/card';
-	import Button, { Label } from '@smui/button';
+	import Button, { Label, Icon } from '@smui/button';
 	import { scale, slide } from 'svelte/transition';
 	import Countdown from './Countdown.svelte';
 	import { type IResponse, store, type IQuestionApi } from './store';
-	import { Icon } from '@smui/common';
 	import { onMount } from 'svelte';
 	import axios from 'axios';
 	import {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { type IQuestion, store } from './store';
-	import { Icon, Label } from '@smui/common';
+	import { Icon, Label } from '@smui/button';
 	import Button from '@smui/button';
 	import {
 		coupleQueries,
