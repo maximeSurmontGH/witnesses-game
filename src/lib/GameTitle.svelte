@@ -10,7 +10,7 @@
 		$store.displayWhoAreYou = true;
 	}}
 >
-	<h1>ont mon</h1>
+	<h1>Qui seront nos</h1>
 	<h1 style="display: flex; align-items: center; justify-content: space-between;">
 		témoin ? <span
 			><Icon style="vertical-align: middle; font-size: 1em;" class="material-icons"
